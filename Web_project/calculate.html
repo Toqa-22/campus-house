@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQU Student Campus Housing - Calculate</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+        </script>
+    <script src="app.js"></script>
+</head>
+
+    
+    
+<style>
+    #main-footer {
+        
+        background-image: url("Images/footer.jpg");
+
+    }
+
+    body {
+        background-color: rgb(225, 225, 222);
+        font-family: Georgia, Times, 'Times New Roman', serif;
+        
+    }
+
+    #top {
+        background-image: url("Images/Banner/calculate.jpg");
+        background-position: center;
+        min-height: calc(80vh - 72px);
+        position: sticky;
+        background-size: cover;
+
+    }
+    .navbar-nav {
+        flex-wrap: wrap;
+     }
+
+    .section2 {
+        background-color: rgb(225, 225, 222);
+        color: rgb(50, 50, 70);
+    }
+
+    
+   
+</style>
+
+<body>
+
+    <header class="main-header">
+        <nav class="navbar navbar-expand-sm bg-black navbar-dark">
+            <div class="container-fluid d-flex flex-wrap align-items-center">
+
+                <div class="logo-container navbar-brand d-flex align-items-center me-4">
+                    <img src="Images/logo_img/logo.jpg" alt="SQU Logo" class="logo" width="90px">
+                    <span class="ms-2">SQU Student Campus</span>
+                </div>
+
+
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Restaurant.html">Restaurant</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Announcements.html">Announcements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Maintenance.html">Maintenance</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Locations.html">Locations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Events.html">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Questionnaire.html">Questionnaire page</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="calculate.html">calculate page</a></li>
+                    <li class="nav-item"><a class="nav-link" href="funpage.html">Fun page</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+
+    <section id="top" class="container-fluid d-flex align-items-center justify-content-center">
+        <div class="row ">
+            <div class="col-12 text-center ">
+                <div class=" border border-5 border-white px-5 py-4 bg-black bg-opacity-50  m-0">
+                    <h1 class="display-5 fw-bold text-white">Ironing Bill Calculator</h1>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="container mt-5 ">
+        <div class="card p-4 mx-auto my-5 w-50" >
+            <div class="card-header bg-primary text-white text-center rounded-top">
+                <h2>🧺 Ironing Bill Calculator 🧺</h2>
+                <p class="mb-0">To calculate the total cost of the laundry service</p>
+            </div>
+            <div class="card-body">
+                
+                <p class="text-muted text-center">Price per small item (Shirt/Pants): 500 Baisa (0.500 OMR)</p>
+                <p class="text-muted text-center">Price per special item (Dress/Abaya): 1.000 OMR</p>
+                <hr>
+
+                <form id="billForm">
+                    <div class="mb-3">
+                        <label for="basicItems" class="form-label">Number of Shirts/Pants:</label>
+                        <input type="number" name="basicItems" id="basicItems" class="form-control" min="0" value="0" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="specialItems" class="form-label">Number of Dresses/Abayas:</label>
+                        <input type="number" name="specialItems" id="specialItems"  class="form-control" min="0" value="0" required>
+                    </div>
+
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" name="wantDelivary" id="wantDelivary">
+                        <label class="form-check-label" for="wantDelivary">Do you want a delivery?</label>
+                        <small class="text-info d-block">If yes, pay an extra delivery fee (1 OMR).</small>
+                    </div>
+                    
+                    <button type="button" class="btn btn-success w-100 mt-3" onclick="calculateBill()">Calculate Bill</button>
+                    <button type="submit" class="btn btn-success w-100 mt-3">Submit</button>
+
+                </form>
+
+                <div id="resultArea" class="mt-4 p-3 border rounded text-center bg-white" style="display: none;">
+                    <h4>Bill Summary:</h4>
+                    <p id="totalCost" class="fs-4 text-dark"></p>
+                    <p id="Message" class="text-danger fw-bold"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mb-5 text-center">
+        <h5>Page Database Operations</h5>
+        <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
+            <a href="db_calcu.html" class="btn btn-secondary">Page Database Operations</a>
+            <a href="view_calculate.html" class="btn btn-secondary">View All Data</a>
+        </div>
+    </section>
+
+
+    <div id="main-footer" class="container-fluid d-flex text-white align-items-center justify-content-center">
+        <p>&copy; 2025 Student Complex</p>
+    </div>
+        <script>
+        function calculateBill() {
+            // 1. Retrieve values from the form fields
+            var basicCount = parseInt(document.getElementById('basicItems').value); // Number of shirts/pants
+            var specialCount = parseInt(document.getElementById('specialItems').value); // Number of dresses/abayas
+            var wantDelivary = document.getElementById('wantDelivary').checked; // Is the user want a Delivary
+
+            // Define the service prices (in Omani Riyal - OMR)
+            var BASIC_PRICE = 0.500; // 500 Baisa
+            var SPECIAL_PRICE = 1.000; // 1.000 OMR
+            var DELIVERY_FEE = 1.000; // Delivery fee for non-residents
+
+            
+            // Total cost for basic items
+            var basicCost = basicCount * BASIC_PRICE;
+            // Total cost for special items
+            var specialCost = specialCount * SPECIAL_PRICE;
+            // The initial total cost 
+            let totalInitialCost = basicCost + specialCost;
+
+            // Variable to store the final cost/fee message
+            let message = "";
+            let finalCost = totalInitialCost;
+
+            
+
+            // Condition : Is the user want a delivary? 
+            if (wantDelivary) {
+                // User is not a resident, apply the delivery fee
+                finalCost = finalCost + DELIVERY_FEE; 
+                message += "Delivery fee of 1.000 OMR has been added. ";
+            } else {
+                // User is a resident, delivery is free
+                message += "Delivery service is not added. ";
+            }
+
+            
+
+            // 2. Display the final result
+
+            // Use toFixed(3) to ensure the currency is displayed with three decimal places (Rials and Baisa)
+            document.getElementById('totalCost').innerHTML = "<strong>Total Final Bill: </strong>" +finalCost.toFixed(3) + "OMR";
+            document.getElementById('Message').innerText = message;
+
+
+            // Show the results area after calculation
+            document.getElementById('resultArea').style.display = 'block';
+
+            return finalCost;
+            }
+
+        document.getElementById("billForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const basicItems = parseInt(document.getElementById('basicItems').value) || 0;
+            const specialItems = parseInt(document.getElementById('specialItems').value) || 0;
+            const wantDelivery = document.getElementById('wantDelivary').checked ? "yes" : "no";
+            const total = calculateBill();
+
+            DB.insert("bills", {
+                basicItems: basicItems,
+                specialItems: specialItems,
+                wantDelivery: wantDelivery,
+                total: total
+            });
+
+            window.location.href = "calculate.html?success=1";
+        });
+
+        if (getParam("success") === "1") {
+            showBanner(document.querySelector(".card-body"), "Your bill was saved successfully!");
+        }
+
+    </script>
+
+</body>
+</html>

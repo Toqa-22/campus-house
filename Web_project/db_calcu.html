@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bill Operations</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="app.js"></script>
+    <style>
+        body { font-family: Georgia, Times, 'Times New Roman', serif; background-color: rgb(225, 225, 222); padding: 20px; }
+        section { margin-bottom: 2rem; }
+    </style>
+</head>
+<body>
+
+<section>
+    <h2>Insert Bill</h2>
+    <form id="insertForm">
+        Basic Items: <input type="number" name="basicItems" required><br>
+        Special Items: <input type="number" name="specialItems" required><br>
+        Delivery:
+        <input type="checkbox" name="wantDelivery" value="yes"> Yes<br>
+        <button type="submit">Insert</button>
+    </form>
+    <p id="insertMessage"></p>
+</section>
+
+<section>
+    <h2>Delete Bill</h2>
+    <form id="deleteForm">
+        Bill ID to Delete: <input type="number" name="deleteId" required>
+        <button type="submit">Delete</button>
+    </form>
+    <p id="deleteMessage"></p>
+</section>
+
+<section>
+    <h2>Search Bills</h2>
+    <form id="searchForm">
+        Delivery:
+        <select name="searchDelivery" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <button type="submit">Search</button>
+    </form>
+    <div id="searchResults"></div>
+</section>
+
+<section>
+    <br><br>
+    <a href="calculate.html">
+        <button type="button">Go back</button>
+    </a>
+</section>
+
+<script>
+    const BASIC_PRICE = 0.5;
+    const SPECIAL_PRICE = 1;
+    const DELIVERY_FEE = 1;
+
+    function calcTotal(basicItems, specialItems, wantDelivery) {
+        let total = (basicItems * BASIC_PRICE) + (specialItems * SPECIAL_PRICE);
+        if (wantDelivery === "yes") total += DELIVERY_FEE;
+        return total;
+    }
+
+    const columns = [
+        { key: "id", label: "ID" },
+        { key: "basicItems", label: "Basic Items" },
+        { key: "specialItems", label: "Special Items" },
+        { key: "wantDelivery", label: "Delivery" },
+        { key: "totalDisplay", label: "Total" }
+    ];
+
+    document.getElementById("insertForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const form = event.target;
+        const basicItems = parseInt(form.basicItems.value, 10) || 0;
+        const specialItems = parseInt(form.specialItems.value, 10) || 0;
+        const wantDelivery = form.wantDelivery.checked ? "yes" : "no";
+        const total = calcTotal(basicItems, specialItems, wantDelivery);
+
+        DB.insert("bills", { basicItems, specialItems, wantDelivery, total });
+        document.getElementById("insertMessage").textContent = "Bill inserted.";
+        form.reset();
+    });
+
+    document.getElementById("deleteForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const id = event.target.deleteId.value;
+        const ok = DB.deleteById("bills", id);
+        document.getElementById("deleteMessage").textContent = ok ? ("Deleted Bill ID: " + id) : "Error deleting record.";
+        event.target.reset();
+    });
+
+    document.getElementById("searchForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const delivery = event.target.searchDelivery.value;
+        const results = DB.search("bills", r => r.wantDelivery === delivery)
+            .map(r => Object.assign({}, r, { totalDisplay: Number(r.total).toFixed(2) }));
+        const container = document.getElementById("searchResults");
+        if (results.length === 0) {
+            container.innerHTML = "<p>No results found.</p>";
+        } else {
+            renderTable(container, columns, results);
+        }
+    });
+</script>
+
+</body>
+</html>
