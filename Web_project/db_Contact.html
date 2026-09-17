@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Manage Feedback</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="app.js"></script>
+<style>
+    body { font-family: Georgia, Times, 'Times New Roman', serif; background-color: rgb(225, 225, 222); padding: 20px; }
+    section { margin-bottom: 2rem; }
+</style>
+</head>
+<body>
+
+<h2>Feedback Database Operations</h2>
+<p id="message"></p>
+
+<h3 id="insertSection">Insert Feedback</h3>
+<form id="insertForm">
+    Name: <input type="text" name="name" required><br>
+    Email: <input type="email" name="email" required><br>
+    Message:<br>
+    <textarea name="message" required></textarea><br>
+    <button type="submit">Insert</button>
+</form>
+
+<h3 id="deleteSection">Delete Feedback</h3>
+<form id="deleteForm">
+    ID: <input type="number" name="delete_id" required>
+    <button type="submit">Delete</button>
+</form>
+
+<h3 id="searchSection">Search Feedback by Name</h3>
+<form id="searchForm">
+    Name: <input type="text" name="search_name" required>
+    <button type="submit">Search</button>
+</form>
+
+<div id="searchResults"></div>
+
+<section>
+    <br><br>
+    <a href="contact-us.html">
+        <button type="button">Go back</button>
+    </a>
+</section>
+
+<script>
+    const columns = [
+        { key: "id", label: "ID" },
+        { key: "full_name", label: "Name" },
+        { key: "email", label: "Email" },
+        { key: "message", label: "Message" }
+    ];
+
+    document.getElementById("insertForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const msg = form.message.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        let message;
+        if (!name || !email || !msg) message = "Please fill all fields.";
+        else if (!emailPattern.test(email)) message = "Invalid email format.";
+        else if (name.length < 3) message = "Name must be at least 3 letters.";
+        else if (msg.length < 10) message = "Message must be at least 10 characters.";
+        else {
+            DB.insert("feedback", { full_name: name, email: email, message: msg });
+            message = "Feedback inserted successfully!";
+            form.reset();
+        }
+        document.getElementById("message").textContent = message;
+    });
+
+    document.getElementById("deleteForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const id = event.target.delete_id.value;
+        const ok = DB.deleteById("feedback", id);
+        document.getElementById("message").textContent = ok ? "Record deleted successfully!" : "Error: record not found.";
+        event.target.reset();
+    });
+
+    document.getElementById("searchForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const term = event.target.search_name.value.toLowerCase();
+        const results = DB.search("feedback", r => (r.full_name || "").toLowerCase().includes(term));
+        renderTable(document.getElementById("searchResults"), columns, results);
+    });
+</script>
+
+</body>
+</html>

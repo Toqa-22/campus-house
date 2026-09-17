@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Manage Maintenance Issues</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="app.js"></script>
+<style>
+    body { font-family: Georgia, Times, 'Times New Roman', serif; background-color: rgb(225, 225, 222); padding: 20px; }
+    section { margin-bottom: 2rem; }
+</style>
+</head>
+<body>
+
+<h2>Maintenance Database Operations</h2>
+
+<p id="message"></p>
+
+<h3>Insert New Issue</h3>
+<form id="insertForm">
+    Full Name: <input type="text" name="fullName" required><br>
+    Student ID: <input type="text" name="studentId" required><br>
+    Room Number: <input type="text" name="roomNumber" required><br>
+    Issue Type:<br>
+    <input type="checkbox" name="issueType[]" value="Electrical"> Electrical
+    <input type="checkbox" name="issueType[]" value="Plumbing"> Plumbing
+    <input type="checkbox" name="issueType[]" value="Furniture"> Furniture
+    <input type="checkbox" name="issueType[]" value="Internet"> Internet
+    <input type="checkbox" name="issueType[]" value="Other"> Other<br>
+    Description:<br>
+    <textarea name="description"></textarea><br>
+    Urgency:
+    <select name="urgency" required>
+        <option value="">--Select--</option>
+        <option value="1">1 - High</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 - Low</option>
+    </select><br>
+    <button type="submit">Insert</button>
+</form>
+
+<h3>Delete Issue</h3>
+<form id="deleteForm">
+    ID: <input type="number" name="delete_id" required>
+    <button type="submit">Delete</button>
+</form>
+
+<h3 id="searchSection">Search Issues by Urgency</h3>
+<form id="searchForm">
+    Urgency:
+    <select name="urgency" required>
+        <option value="">--Select--</option>
+        <option value="1">1 - High</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 - Low</option>
+    </select>
+    <button type="submit">Search</button>
+</form>
+
+<div id="searchResults"></div>
+
+<section>
+    <br><br>
+    <a href="Maintenance.html">
+        <button type="button">Go back</button>
+    </a>
+</section>
+
+<script>
+    const columns = [
+        { key: "id", label: "ID" },
+        { key: "full_name", label: "Full Name" },
+        { key: "student_id", label: "Student ID" },
+        { key: "room_number", label: "Room Number" },
+        { key: "issue_type", label: "Issue Type" },
+        { key: "description", label: "Description" },
+        { key: "urgency", label: "Urgency" }
+    ];
+
+    document.getElementById("insertForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const form = event.target;
+        const issueType = Array.from(form.querySelectorAll('input[name="issueType[]"]:checked')).map(cb => cb.value).join(", ");
+        DB.insert("issues", {
+            full_name: form.fullName.value,
+            student_id: form.studentId.value,
+            room_number: form.roomNumber.value,
+            issue_type: issueType,
+            description: form.description.value,
+            urgency: parseInt(form.urgency.value, 10)
+        });
+        document.getElementById("message").textContent = "Record inserted successfully!";
+        form.reset();
+    });
+
+    document.getElementById("deleteForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const id = event.target.delete_id.value;
+        const ok = DB.deleteById("issues", id);
+        document.getElementById("message").textContent = ok ? "Record deleted successfully!" : "No record found with that ID.";
+        event.target.reset();
+    });
+
+    document.getElementById("searchForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const urgency = event.target.urgency.value;
+        const results = DB.search("issues", r => String(r.urgency) === String(urgency));
+        renderTable(document.getElementById("searchResults"), columns, results);
+    });
+</script>
+
+</body>
+</html>

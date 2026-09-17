@@ -1,0 +1,561 @@
+/* =================================
+        Banner
+   =================================
+*/
+#announcement-top{
+    background-image: url("Images/Banner/Announcements.jpg")
+}
+#main-top-banner{
+    background-image: url("Images/Banner/Home.jpg")
+}
+#locations-top{
+    background-image: url("Images/Banner/Locations\ TO\ VISIT.jpg")
+}
+#maintenance-top{
+    background-image: url("Images/Banner/Maintenance.jpg")
+}
+#about-us-banner{
+    background-image: url("Images/Banner/ABOUT\ UA.jpg")
+}
+#restaurant-top{
+    background-image: url("Images/Banner/Restaurant.jpg")
+}
+#contact-us-banner{
+    background-image: url("Images/Banner/CONTACT\ US.jpg")
+}
+#event-banner{
+    background-image: url("Images/Banner/EVENTS.jpg")
+}
+/* =================================
+        Banner / WeekDays
+   =================================
+*/
+#Sunday-top{
+    background-image: url("Images/Banner/WeekDays/SUNDAY.jpg");
+}
+#Monday-top{
+    background-image: url("Images/Banner/WeekDays/Monday.jpg");
+}
+#Tuesday-top{
+    background-image: url("Images/Banner/WeekDays/TUESDAY.jpg");
+}
+#Wednesday-top{
+    background-image: url("Images/Banner/WeekDays/WEDNESDAY.jpg");
+}
+#Thuresday-top{
+    background-image: url("Images/Banner/WeekDays/THURSDY.jpg");
+}
+#Friday-top{
+    background-image: url("Images/Banner/WeekDays/Friday.jpg");
+}
+#Saturday-top{
+    background-image: url("Images/Banner/WeekDays/Saturday.jpg");
+}
+
+/* =================================
+       Resturant menus
+   =================================
+*/
+.menu {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.Restaurant {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+.Restaurant img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    padding: 1rem;
+}
+
+/* =================================
+        Restaurant button
+   =================================
+*/
+.button-Restaurant{
+    margin:2rem
+}
+
+/* =================================
+        Restaurant a
+   =================================
+*/
+a {
+    text-decoration: none;
+    color: rgba(18, 15, 15, 0.822);
+    font-weight: bold;
+    font-size: 1rem;
+    padding-bottom: 5px;
+}
+
+/*=================================================================*/
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: rgb(225, 225, 222);
+    font-family:Georgia, Times, 'Times New Roman', serif;
+    line-height: 1.5;
+}
+
+
+h2 {
+    font-size: 18px;
+    color: rgb(58, 58, 78);
+    margin-bottom: 20px;
+}
+
+/* =================================
+   1. HEADER / NAVIGATION
+   =================================
+*/
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 15px;
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+nav li {
+    margin-left: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.822);
+    font-weight: bold;
+    font-size: 1rem;
+    padding-bottom: 5px;
+}
+
+
+a.active {
+    color: rgb(255, 255, 255);
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+
+nav a:hover {
+    color: rgb(255, 255, 255);
+}
+
+.header-search span {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* =================================
+   2. top SECTION 
+   =================================
+*/
+section.main-top {
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    position: sticky;
+}
+
+
+
+
+.main-top-content-box {
+    position: relative;
+    border: 3px solid white;
+    padding: 2rem 3rem;
+    max-width: 85%;
+    max-height: 90%;
+    background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+.main-top-text h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+
+}
+
+.main-top-text h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: white;
+}
+
+
+/*===================================================================================*/
+section.top {
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+
+.top-content-box {
+    position: relative;
+    border: 3px solid white;
+    padding: 2rem 3rem;
+    max-width: 85%;
+    max-height: 90%;
+    background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+.top-text h1 {
+    font-size: 220%;
+    font-weight: 700;
+    white-space: normal; 
+    word-wrap: break-word;
+
+}
+
+
+
+/* =================================
+    Body
+   =================================
+*/
+.section1 {
+    padding: 10px 20px;
+    text-align: center;
+    background-color: rgb(50, 50, 70);
+    color: rgb(225, 225, 222);
+    font-size: 1.5rem;
+
+}
+
+.section1 h2 {
+    font-size: 2.5rem;
+    color: rgb(225, 225, 222);
+
+}
+
+.section2 {
+    padding: 60px 5%;
+    text-align: center;
+    color: rgb(50, 50, 70);
+    background-color: rgb(225, 225, 222);
+    font-size: 1.5rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+
+
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 220px;
+    border-radius: 6px;
+    display: block;
+    border: 1px solid rgb(204, 204, 204);
+    object-fit: cover;
+
+}
+
+
+.student-service {
+    background-color: rgb(50, 50, 70);
+    padding: 20px 30px;
+}
+
+
+
+
+.service-button {
+    width: 300px;
+    background-color: rgb(50, 50, 70);
+    color: rgb(225, 225, 222);
+    padding: 15px 20px;
+    margin: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+
+
+.service-button:hover {
+    background-color: rgb(49, 49, 78);
+
+}
+
+/*======== Announcement =============================================*/
+
+h2.left-text-align {
+    text-align: left;
+    padding-left: 4rem;
+    
+}
+
+#announcement-img {
+    width: 800px;
+    height: 800px;
+}
+
+#announcement-table {
+    text-align: left;
+    padding: 5px 30px;
+    margin: 1rem;
+    
+}
+
+#report-maintenance {
+    padding: 5px;
+    text-align: center;
+    background-color: rgb(50, 50, 70);
+    color: rgb(225, 225, 222);
+    
+}
+
+.announcement-table {
+    text-align: left;
+    border-collapse: collapse;
+
+}
+
+.announcement-table th {
+    padding: 5px;
+    margin: 5px;
+}
+
+.announcement-table td {
+    margin: 30px;
+    padding: 5px;
+}
+
+#report-maintenance {
+    margin: 5px 0;
+}
+
+/*========= maintanence form =========================================*/
+section.section-form {
+    margin: 0;
+    background: rgb(225, 225, 222);
+    color: rgb(50, 50, 70);
+    padding: 10px 20px;
+}
+
+.form-header {
+    max-width: 760px;
+    margin: 32px auto 0px auto;
+    padding: 15px 24px 5px 24px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(225, 225, 222);
+    border-radius: 8px 8px 0 0;
+    border-top: 10px solid rgb(50, 50, 70);
+
+}
+
+.form-header-note {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 5px 24px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(225, 225, 222);
+
+}
+
+.required-note {
+    font-size: 13px;
+    color: rgb(217, 48, 37);
+
+}
+
+.form-header h1 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+
+.form-container {
+    max-width: 760px;
+    margin: 0 auto 32px;
+    background: rgb(255, 255, 255);
+    border: 1px solid (225, 225, 222);
+    border-radius: 0 0 8px 8px;
+    padding: 15px 24px;
+}
+
+
+
+.form-content {
+    margin-bottom: 20px;
+    display: block;
+    font-size: 14px;
+
+}
+
+
+.required {
+    color: rgb(217, 48, 37);
+}
+
+textarea,
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid rgb(225, 225, 222);
+    border-radius: 4px;
+}
+
+input:focus {
+    outline: 2px solid rgb(225, 225, 222);
+    border-color: rgb(50, 50, 70);
+
+}
+
+textarea :focus {
+    outline: 2px solid rgb(225, 225, 222);
+    border-color: rgb(50, 50, 70);
+}
+
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin: 25px auto;
+   
+}
+
+
+
+.btn-link {
+    background: none;
+    border: none;
+    color: rgb(50, 50, 70);
+    cursor: pointer;
+    margin-right: auto;
+    font-size: 15px;
+    font-weight: bold;
+
+}
+
+.btn-submit {
+    background-color: rgb(50, 50, 70);
+    border: none;
+    color: rgb(225, 225, 222);
+    cursor: pointer;
+    margin-left: auto;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 2.5px;
+    padding: 10px 20px;
+    
+
+}
+
+
+/* ======== locations =================================================*/
+
+
+
+.location {
+    background-color: rgb(225, 225, 222);
+    border-left: 5px solid rgb(50, 50, 70);
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+}
+
+
+
+.location h3 {
+    margin-top: 0;
+    color: rgb(50, 50, 70);
+}
+
+
+/* =================================
+   6. FOOTER 
+   =================================
+*/
+.main-footer {
+    color: white;
+    text-align: center;
+    padding: 25px;
+    background-image: url("Images/footer.jpg");
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin: 0;
+}
+
+/* Responsive (for smaller screens) */
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-text-box h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-text-box p {
+        font-size: 1.1rem;
+    }
+}
+
+
+

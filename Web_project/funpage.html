@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fun page</title>
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
+    <script 
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous">
+    </script>
+    <style>
+        body {
+            background-color: rgb(225, 225, 222);
+            font-family:Georgia, Times, 'Times New Roman', serif;
+            line-height: 1.5;
+        }
+        .main-footer {
+            background-image: url("Images/footer.jpg");
+        }
+        #funpage-top{
+            background-image: url("Images/Banner/funpage.jpg");
+            background-size: cover;   
+            height: 400px;                 
+            display: flex; 
+        }
+
+        #drawing_canvas {
+            /*mouse shape be + */
+            cursor: crosshair;
+        }
+        #clear_button {
+            background-color: rgb(50, 50, 70);
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .title{
+            background-color: rgb(50, 50, 70);
+            color: rgb(225, 225, 222);
+        }
+        .navbar-nav {
+            flex-wrap: wrap;
+        }
+       
+    </style>
+    
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar navbar-expand-sm bg-black navbar-dark">
+            <div class="container-fluid d-flex flex-wrap align-items-center">
+
+                <div class="logo-container navbar-brand d-flex align-items-center me-4">
+                    <img src="Images/logo_img/logo.jpg" alt="SQU Logo" class="logo" width="90px">
+                    <span class="ms-2">SQU Student Campus</span>
+                </div>
+
+
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Restaurant.html">Restaurant</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Announcements.html">Announcements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Maintenance.html">Maintenance</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Locations.html">Locations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Events.html">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Questionnaire.html">Questionnaire page</a></li>
+                    <li class="nav-item"><a class="nav-link" href="calculate.html">calculate page</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="funpage.html">Fun page</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+
+    <section class="top align-items-center" id="funpage-top">
+        <div class="container top-content-box p-4 bg-black bg-opacity-50 border border-white border-3">
+            <div class="top-text text-light text-center">
+                <h1>Relax & Draw</h1>
+                <h2>⚜ enjoy and let your creative imagination flow ⚜</h2>
+            </div>
+        </div>
+    </section>
+
+    <h2 class="title p-3 text-center">The Healing Power of Drawing and Creativity</h2>
+    <section class="container mb-5 mt-5">
+        <div class="row g-3">
+            <div class="col-12 col-sm-6 col-lg-4">
+                <img class="img-fluid rounded" src="Images/Fun_page/funPage1.jpg" alt="funpage image 1" />
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <img class="img-fluid rounded" src="Images/Fun_page/funPage2.jpg" alt="funpage image 2" />
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <img class="img-fluid rounded" src="Images/Fun_page/funPage3.jpg" alt="funpage image 3" />
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <img class="img-fluid rounded" src="Images/Fun_page/funPage4.jpg" alt="funpage image 4" />
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <img class="img-fluid rounded" src="Images/Fun_page/funPage5.jpg" alt="funpage image 4" />
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <img class="img-fluid rounded" src="Images/Fun_page/funPage6.jpg" alt="funpage image 4" />
+            </div>
+        </div>
+    </section>
+
+
+
+    <h2 class="title p-3 text-center">Your Personal Corner for Creative Expression</h2>
+    <section class="container text-center mb-5 mt-5">
+        <div>
+            <canvas id="drawing_canvas" width="700" height="500" class="m-3 bg-light"></canvas>
+        </div>
+        <!-- choose color  + size-->
+        <div class="mb-3">
+            <label class="me-2"><pre>Choose Color:</pre></label>
+            <input type="color" id="color">
+            <label><pre>    Brush Size:</pre></label>
+            <input type="range" id="sizePicker" class="form-range w-auto d-inline-block ms-2" min="1" max="10" value="3">
+        </div>
+        <!--clear button-->
+        <div>
+            <button onclick="clear_canvas()" id="clear_button" class="p-2 m-3 rounded text-light">Clear</button>
+        </div>
+        <p>Use the mouse to draw!</p>
+    </section>
+
+
+    <footer class="main-footer text-light text-center p-3">
+        <p> © 2025 Student Complex </p>
+    </footer>
+
+
+    <script 
+        type="text/javascript" src="Script.js">
+    </script>
+</body>
+</html>

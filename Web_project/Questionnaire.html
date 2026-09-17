@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+
+    <title>SQU Student Campus Housing - Questionnaire</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+
+
+
+    <style>
+        body {
+            background-color: rgb(225, 225, 222);
+            font-family: Georgia, Times, 'Times New Roman', serif;
+        }
+        .main-footer {
+            background-image: url("Images/footer.jpg");
+            background-size: cover;
+        }
+        #question-banner {
+            background-image: url("Images/Banner/ques.jpg");
+            background-size: cover;
+            height: 400px;
+            display: flex;
+
+        }
+
+        .title {
+            background-color: rgb(50, 50, 70);
+            color: rgb(225, 225, 222);
+        }
+        .btn {
+            background-color: rgb(50, 50, 70);
+            color: rgb(225, 225, 222);
+            min-width: 200px;
+        }
+
+    </style>
+
+
+
+
+
+
+    </head>
+
+
+
+    <body>
+
+
+        <section>
+
+
+            <header class="main-header">
+                <nav class="navbar navbar-expand-sm navbar-dark bg-black">
+
+                    <div class="container-fluid">
+
+
+                        <a class="navbar-brand d-flex align-items-center" href="#">
+                            <img src="Images/logo_img/logo.jpg" width="80" class="rounded me-2">
+
+
+                            <span>SQU Student Campus</span>
+
+
+                        </a>
+
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks">
+                            <span class="navbar-toggler-icon"></span>
+
+
+                        </button>
+
+                    
+
+
+
+                        <div class="collapse navbar-collapse" id="navLinks">
+                           <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Restaurant.html">Restaurant</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Announcements.html">Announcements</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Maintenance.html">Maintenance</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Locations.html">Locations</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Events.html">Events</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="Questionnaire.html">Questionnaire page</a></li>
+                            <li class="nav-item"><a class="nav-link" href="calculate.html">calculate page</a></li>
+                            <li class="nav-item"><a class="nav-link" href="funpage.html">Fun page</a></li>
+                            <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+                        </ul>
+
+
+
+                        </div>
+
+                    </div>
+
+
+
+                </nav>
+
+
+
+            </header>
+
+
+
+        </section>
+
+
+
+
+
+
+
+        <section id="question-banner" class="d-flex justify-content-center align-items-center text-white">
+            <div class="text-center bg-black bg-opacity-50 p-4 border border-3 border-white">
+
+                <h1 class="display-5 fw-bold">QUESTIONNAIRE</h1>
+
+            </div>
+
+
+
+
+        </section>
+
+
+        <section class="py-4 title text-light text-center">
+            <h2 class="fw-bold">Test Your Knowledge</h2>
+            <p class="mt-2">Answer the questions below and check your score!</p>
+
+
+
+        </section>
+
+
+
+
+
+
+        <section class="container py-5">
+            <div class="row justify-content-center">
+
+                <div class="col-md-10">
+
+                    <div class="card shadow">
+                        <div class="card-body p-4">
+
+
+
+                            <form id="quizForm">
+
+
+                            
+                                <section class="mb-4">
+                                    <h5 class="fw-bold">1. Where can students submit maintenance requests?</h5>
+                                    <label><input type="radio" name="q1" value="a"> Restaurant</label><br>
+                                    <label><input type="radio" name="q1" value="b"> Housing supervisors</label><br>
+
+                                    <label><input type="radio" name="q1" value="c"> IT department</label>
+
+
+                                </section>
+
+                            
+                                <section class="mb-4">
+                                    <h5 class="fw-bold">2. What does the website provide for restaurants?</h5>
+                                    <label><input type="radio" name="q2" value="a"> Online menus</label><br>
+
+                                    <label><input type="radio" name="q2" value="b"> Delivery service</label><br>
+                                    <label><input type="radio" name="q2" value="c"> Free meals</label>
+
+
+                                </section>
+
+                              
+                                <section class="mb-4">
+                                    <h5 class="fw-bold">3. How can students know restaurant food before visiting?</h5>
+
+                                    <label><input type="radio" name="q3" value="a"> Word of mouth</label><br>
+
+                                    <label><input type="radio" name="q3" value="b"> Checking the website</label><br>
+                                    <label><input type="radio" name="q3" value="c"> Asking supervisors</label>
+
+
+                                </section>
+
+
+                        
+                                <section class="mb-4">
+                                    <h5 class="fw-bold">4. What does the campus housing website mainly improve?</h5>
+                                    <label><input type="radio" name="q4" value="a"> Student access to information</label><br>
+                                    <label><input type="radio" name="q4" value="b"> Sports facilities</label><br>
+                                    <label><input type="radio" name="q4" value="c"> Parking areas</label>
+
+
+
+                                </section>
+
+                                
+
+
+                                <section class="mb-4">
+                                    <h5 class="fw-bold">5. Who benefits from the maintenance request feature?</h5>
+                                    <label><input type="radio" name="q5" value="a"> Male students</label><br>
+                                    <label><input type="radio" name="q5" value="b"> Female students in housing</label><br>
+                                    <label><input type="radio" name="q5" value="c"> Only staff</label>
+
+                                </section>
+
+                            
+                                <section class="text-center">
+
+                                    <button type="submit" class="btn fw-bold px-4">
+                                        Submit Answers
+                                    </button>
+
+
+                                </section>
+
+
+
+
+
+                            </form>
+
+
+
+
+                        </div>
+
+
+
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        
+
+        </section>
+
+    <section class="container mb-5 text-center">
+        <h5>Quiz Result Database Operations</h5>
+        <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
+            <a href="db_ques.html" class="btn btn-secondary">Quiz Result Database Operations</a>
+            <a href="view_ques.html" class="btn btn-secondary">View All Answers</a>
+        </div>
+    </section>
+
+    <footer class="main-footer text-light text-center p-3">
+        <p> © 2025 Student Complex </p>
+    </footer>
+    <script>
+        // For each question:
+        // Get the selected radio button using querySelector
+        // "if something is selected, get its value"
+        // Compare with the correct answer → if correct then increase score
+
+
+        function checkQuiz() {
+            // Start the score at 0
+            let score = 0;
+            // Question 1 — correct answer is "b"
+            if (document.querySelector('input[name="q1"]:checked')?.value === "b") score++;
+            // Question 2 — correct answer is "a"
+            if (document.querySelector('input[name="q2"]:checked')?.value === "a") score++;
+            // Question 3 — correct answer is "b"
+            if (document.querySelector('input[name="q3"]:checked')?.value === "b") score++;
+            // Question 4 — correct answer is "a"
+            if (document.querySelector('input[name="q4"]:checked')?.value === "a") score++;
+            // Question 5 — correct answer is "b"
+            if (document.querySelector('input[name="q5"]:checked')?.value === "b") score++;
+            return score;
+        }
+
+        document.getElementById("quizForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const score = checkQuiz();
+            const total = 5;
+
+            // Show the final score to the user
+            alert("Your score is: " + score + "/" + total);
+
+            DB.insert("quiz_results", { score: score, total: total });
+            window.location.href = "Questionnaire.html?done=1";
+        });
+
+        if (getParam("done") === "1") {
+            showBanner(document.querySelector(".card-body"), "Your quiz result has been recorded!");
+        }
+
+    </script>
+
+
+    </body>
+
+</html>
+
+
